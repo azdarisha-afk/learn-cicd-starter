@@ -1,22 +1,17 @@
-name: ci
+name: Tests
 
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
 
 jobs:
-  tests:
-    name: Tests
+  Tests:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Check out code
+      - name: Check out repo
         uses: actions/checkout@v4
 
-      - name: Set up Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: "1.26.0"
-
-      - name: Check Go version
-        run: go version
+      - name: Run tests
+        run: go test ./...
