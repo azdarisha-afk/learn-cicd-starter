@@ -1,5 +1,6 @@
 package main
 
+// security fixes applied
 import (
 	"database/sql"
 	"embed"
